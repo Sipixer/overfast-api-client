@@ -1,0 +1,26 @@
+{
+  "name": "overfast-api",
+  "version": "1.0.0",
+  "description": "Use OverFast API by TeKrop",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sipixer/overfast-api.git"
+  },
+  "keywords": [
+    "Overwatch"
+  ],
+  "author": "Sipixer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sipixer/overfast-api/issues"
+  },
+  "homepage": "https://github.com/Sipixer/overfast-api#readme",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}
