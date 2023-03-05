@@ -1,6 +1,7 @@
+import { Privacy } from "../type";
 type Query = {
-    name?: string;
-    privacy?: string;
+    name: string;
+    privacy?: Privacy;
     order_by?: string;
     offset?: number;
     limit?: number;
@@ -8,7 +9,7 @@ type Query = {
 type Player = {
     player_id: string;
     name: string;
-    privacy: "public" | "private";
+    privacy: Privacy;
     career_url: string;
 };
 type Response = {

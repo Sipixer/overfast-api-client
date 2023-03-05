@@ -63,8 +63,8 @@ declare const OverwatchAPI: {
         coutry_code?: string | undefined;
     }[]>;
     searchPlayers: (query?: {
-        name?: string | undefined;
-        privacy?: string | undefined;
+        name: string;
+        privacy?: import("./type").Privacy | undefined;
         order_by?: string | undefined;
         offset?: number | undefined;
         limit?: number | undefined;
@@ -73,64 +73,13 @@ declare const OverwatchAPI: {
         results: {
             player_id: string;
             name: string;
-            privacy: "public" | "private";
+            privacy: import("./type").Privacy;
             career_url: string;
         }[];
     }>;
     player: (player_id: string) => {
-        career: Promise<any>;
-        summary: Promise<{
-            username: string;
-            avatar?: string | undefined;
-            title?: string | undefined;
-            endorsement: {
-                level: number;
-                frame: string;
-            };
-            competitive?: {
-                pc?: {
-                    tank: {
-                        division: "bronze" | "silver" | "gold" | "platinum" | "diamond" | "master" | "grandmaster";
-                        tier: number;
-                        role_icon: string;
-                        rank_icon: string;
-                    };
-                    damage: {
-                        division: "bronze" | "silver" | "gold" | "platinum" | "diamond" | "master" | "grandmaster";
-                        tier: number;
-                        role_icon: string;
-                        rank_icon: string;
-                    };
-                    support: {
-                        division: "bronze" | "silver" | "gold" | "platinum" | "diamond" | "master" | "grandmaster";
-                        tier: number;
-                        role_icon: string;
-                        rank_icon: string;
-                    };
-                } | undefined;
-                console?: {
-                    tank: {
-                        division: "bronze" | "silver" | "gold" | "platinum" | "diamond" | "master" | "grandmaster";
-                        tier: number;
-                        role_icon: string;
-                        rank_icon: string;
-                    };
-                    damage: {
-                        division: "bronze" | "silver" | "gold" | "platinum" | "diamond" | "master" | "grandmaster";
-                        tier: number;
-                        role_icon: string;
-                        rank_icon: string;
-                    };
-                    support: {
-                        division: "bronze" | "silver" | "gold" | "platinum" | "diamond" | "master" | "grandmaster";
-                        tier: number;
-                        role_icon: string;
-                        rank_icon: string;
-                    };
-                } | undefined;
-            } | undefined;
-            privacy: "public" | "private";
-        }>;
+        summary: Promise<import("./type").PlayerSummary>;
+        career: Promise<import("./type").PlayerCareer>;
     };
 };
 export default OverwatchAPI;

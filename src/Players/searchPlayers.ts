@@ -1,8 +1,9 @@
+import { Privacy } from "../type";
 import { get } from "../utils/fetch";
 
 type Query = {
-  name?: string; // Example: name=TeKrop
-  privacy?: string; // Example: privacy=public
+  name: string; // Example: name=TeKrop
+  privacy?: Privacy; // Example: privacy=public
   order_by?: string; // Ordering field and the way it's arranged (asc[ending]/desc[ending]) ^(player_id|name|privacy):(asc|desc)$ Default: "name:asc"
   offset?: number; // Offset of the results >= 0 Default: 0
   limit?: number; // Limit of results per page > 0 Default: 20
@@ -11,7 +12,7 @@ type Query = {
 type Player = {
   player_id: string; // Player unique name. Identifier of the player : BattleTag (with "#" replaced by "-")
   name: string; // Player nickname displayed in the game
-  privacy: "public" | "private"; // Privacy of the player career. If private, only some basic informations are available on player details endpoint (avatar, endorsement)
+  privacy: Privacy; // Privacy of the player career. If private, only some basic informations are available on player details endpoint (avatar, endorsement)
   career_url: string; // Player's career OverFast API URL (Get player career data) [ 1 .. 65536 ] characters
 };
 
