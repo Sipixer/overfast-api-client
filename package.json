@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/Sipixer/overfast-api-client/issues"
   },
-  "homepage": "https://github.com/Sipixer/overfast-api-client-client#readme",
+  "homepage": "https://github.com/Sipixer/overfast-api-client#readme",
   "devDependencies": {
     "typescript": "^4.9.5"
   }
