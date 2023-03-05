@@ -1,7 +1,7 @@
 {
-  "name": "overfast-api",
+  "name": "overfast-api-client",
   "version": "1.0.0",
-  "description": "Use OverFast API by TeKrop",
+  "description": "OverFast API Client is a TypeScript package that allows users to interact with the OverFast API, an unofficial API for Overwatch 2. It simplifies the process of fetching data about heroes, game modes, maps and player statistics from the OverFast API. It is easy to install and use, and supports both promises and callbacks.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sipixer/overfast-api.git"
+    "url": "git+https://github.com/Sipixer/overfast-api-client.git"
   },
   "keywords": [
     "Overwatch"
@@ -17,9 +17,9 @@
   "author": "Sipixer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Sipixer/overfast-api/issues"
+    "url": "https://github.com/Sipixer/overfast-api-client/issues"
   },
-  "homepage": "https://github.com/Sipixer/overfast-api#readme",
+  "homepage": "https://github.com/Sipixer/overfast-api-client-client#readme",
   "devDependencies": {
     "typescript": "^4.9.5"
   }
