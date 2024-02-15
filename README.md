@@ -138,6 +138,34 @@ Overwatch.heroes({ locale: "fr-fr" }).then((heroes) => {
 ]
 ```
 
+## Maps Example
+
+The API supports the following additional parameters:
+
+- `gamemode`: An optional parameter that filters the results based on what maps are available for a specific gamemode. The possible values are `"assault"`, `"capture-the-flag"`, `"control"`, `"deathmatch"`, `"elimination"`, `"escort"`, `"flashpoint"`, `"hybrid"`, `"push"`, and `"team-deathmatch"`.
+
+```typescript
+import Overwatch from "overfast-api";
+
+Overwatch.maps({ gamemode: "control" }).then((result) => {
+  console.log(result);
+});
+```
+
+```typescript
+[
+  {
+    "name": "Hanamura",
+    "screenshot": "https://overfast-api.tekrop.fr/static/maps/hanamura.jpg",
+    "gamemodes": [],
+    "location": "Tokyo, Japan",
+    "country_code": "JP"
+  }
+]
+```
+
+
+
 ## License
 
 MIT
