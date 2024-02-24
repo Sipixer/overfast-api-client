@@ -1,8 +1,30 @@
 import { ValidationError, InternalServerError } from "..";
 import { BlizzardServerError } from "../error/BlizzardServerError";
 
-export const get = async (url: string): Promise<any> => {
-  const response = await fetch(url);
+
+/**
+ * Performs a GET request to the specified URL with optional query parameters and returns the retrieved data.
+ * 
+ * @param url The URL to query.
+ * @param params Optional query parameters to append to the URL.
+ * @returns A promise containing the retrieved data.
+ * @template T The expected type of the retrieved data.
+ */
+export const get = async <T>(url: string, params?: Record<string, string | number>): Promise<T> => {
+  // Construct URL with query parameters if provided
+  let fullUrl = url;
+  if (params) {
+    const stringParams: Record<string, string> = {};
+    for (const key in params) {
+      stringParams[key] = params[key] as string;
+    }
+
+    const queryString = new URLSearchParams(stringParams).toString();
+    if (queryString) {
+      fullUrl += `?${queryString}`;
+    }
+  }
+  const response = await fetch(fullUrl);
   if (response.status === 422) {
     const data = await response.json();
     throw new ValidationError(data.detail);

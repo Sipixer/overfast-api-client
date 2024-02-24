@@ -1,26 +1,33 @@
 import { ValidationError as ValidationErr } from "./error/ValidationError";
 import { InternalServerError as InternalServerErr } from "./error/InternalServerError";
 import { BlizzardServerError as BlizzardServerErr } from "./error/BlizzardServerError";
-import { hero } from "./hero/hero";
-import { heroes } from "./hero/heroes";
-import { roles } from "./hero/roles";
-import { gamemodes } from "./Gamemodes/gamemodes";
-import { maps } from "./Gamemodes/maps";
-import { searchPlayers } from "./Players/searchPlayers";
-import { player } from "./Players/player";
+import { HEROES_KEYS, locales } from "./type";
+import { Heroes } from "./hero/heroes";
+import { Maps } from "./Maps/maps";
+import { Players } from "./Players/players";
 
 export const ValidationError = ValidationErr;
 export const InternalServerError = InternalServerErr;
 export const BlizzardServerError = BlizzardServerErr;
+export type NEW_HEROES_KEYS<T extends string | number | symbol> = T extends HEROES_KEYS ? HEROES_KEYS : T | HEROES_KEYS;
 
-const OverwatchAPI = {
-  heroes: heroes,
-  hero: hero,
-  roles: roles,
-  gamemodes: gamemodes,
-  maps: maps,
-  searchPlayers: searchPlayers,
-  player: player,
-};
 
-export default OverwatchAPI;
+export default class OverfastClient<HEROES extends string | number | symbol = HEROES_KEYS> {
+  url;
+  locale;
+
+  heroes;
+  maps;
+  players;
+
+  constructor({ url = "https://overfast-api.tekrop.fr/", locale = "en-us" }: {
+    url?: string,
+    locale?: locales
+  } | undefined = {}) {
+    this.url = url;
+    this.locale = locale;
+    this.heroes = new Heroes<NEW_HEROES_KEYS<HEROES>>(url, locale);
+    this.maps = new Maps(url);
+    this.players = new Players<NEW_HEROES_KEYS<HEROES>>(url);
+  }
+}
