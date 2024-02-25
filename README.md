@@ -13,7 +13,7 @@ npm i overfast-api-client
 ## Usage
 
 ```typescript
-import OverfastClient from "overfast-api-client";
+import { OverfastClient } from "overfast-api-client";
 ```
 
 ## Features

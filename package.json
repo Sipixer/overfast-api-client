@@ -1,7 +1,7 @@
 {
   "name": "overfast-api-client",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OverFast API Client is a TypeScript package that allows users to interact with the OverFast API, an unofficial API for Overwatch 2. It simplifies the process of fetching data about heroes, game modes, maps and player statistics from the OverFast API. It is easy to install and use, and supports both promises and callbacks.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
