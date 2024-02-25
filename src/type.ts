@@ -51,34 +51,7 @@ export type locales =
   | "pt-br"
   | "ru-ru"
   | "zh-tw";
-export type Ability = {
-  name: string;
-  description: string;
-  icon: string;
-};
 
-export type MapGamemode =
-  | "assault"
-  | "capture-the-flag"
-  | "control"
-  | "deathmatch"
-  | "elimination"
-  | "escort"
-  | "hybrid"
-  | "push"
-  | "team-deathmatch";
-
-type CompetitiveDivision =
-  | "bronze"
-  | "silver"
-  | "gold"
-  | "platinum"
-  | "diamond"
-  | "master"
-  | "grandmaster";
-export type Privacy = "public" | "private";
-type RoleIconUri = string;
-type RankIconUri = string;
 
 type PlayerEndorsement = {
   level: number; //Player Endorsement level. 0 if no information found. 1 to 5 otherwise.
@@ -91,16 +64,19 @@ type PlatformCompetitiveRank = {
 };
 
 type RoleDetails = {
-  division: CompetitiveDivision; //Division of the rank (bronze, silver, gold, platinum, diamond, master, grandmaster)
+  division: string; //Division of the rank
   tier: number; //Tier inside the division, lower is better (1 to 5)
-  role_icon: RoleIconUri; //URL the role icon
-  rank_icon: RankIconUri; //URL of the rank icon associated with the player rank (division + tier)
+  role_icon: string; //URL the role icon
+  rank_icon: string; //URL of the division icon associated with the player rank
+  tier_icon: string; //URL of the tier icon associated with the player rank
 };
 
 type CompetitiveRank = {
-  tank: RoleDetails; //Details about the tank rank
-  damage: RoleDetails; //Details about the damage rank
-  support: RoleDetails; //Details about the support rank
+  season: string; //Last competitive season played by the player. Can be 0 on Blizzard data for some reason, but can't explain what it means.
+  tank: RoleDetails; //Tank role details
+  damage: RoleDetails; //Damage role details
+  support: RoleDetails; //Support role details
+  open: RoleDetails; //Open Queue role details
 };
 
 type PlayerCareerStats = {
@@ -138,10 +114,10 @@ type PlayerCareerValueStat = {
 export type PlayerSummary = {
   username: string; //Username of the player
   avatar?: string; //URL of the avatar of the player
+  namecard?: string; //URL of the player's namecard (or banner) if any
   title?: string; //Title of the player
   endorsement: PlayerEndorsement; //Endorsement of the player
   competitive?: PlatformCompetitiveRank; //Competitive rank of the player
-  privacy: Privacy; //Privacy of the player
 };
 
 export type PlayerCareer = {
