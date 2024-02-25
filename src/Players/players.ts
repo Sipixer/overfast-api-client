@@ -33,13 +33,15 @@ export class Players<T extends string | number | symbol> {
      * @param params - The search parameters.
      * @returns A promise that resolves to the response containing the search results.
      */
-    async searchPlayers(params: {
-        name: string,
+    async searchPlayers(name: string, params?: {
         order_by?: `${"player_id" | 'name'}:${"asc" | "desc"}`,
         offset?: number,
         limit?: number
     }): Promise<Response> {
-        return get<Response>(`${this.url}players`, params);
+        return get<Response>(`${this.url}players`, {
+            name,
+            ...params
+        });
     }
 
     /**

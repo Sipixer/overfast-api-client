@@ -13,8 +13,6 @@ export type NEW_HEROES_KEYS<T extends string | number | symbol> = T extends HERO
 
 
 export default class OverfastClient<HEROES extends string | number | symbol = HEROES_KEYS> {
-  url;
-  locale;
 
   heroes;
   maps;
@@ -24,10 +22,13 @@ export default class OverfastClient<HEROES extends string | number | symbol = HE
     url?: string,
     locale?: locales
   } | undefined = {}) {
-    this.url = url;
-    this.locale = locale;
     this.heroes = new Heroes<NEW_HEROES_KEYS<HEROES>>(url, locale);
     this.maps = new Maps(url);
     this.players = new Players<NEW_HEROES_KEYS<HEROES>>(url);
   }
 }
+
+
+const overfast = new OverfastClient();
+
+overfast.players.searchPlayers("Sipixer").then(console.log);

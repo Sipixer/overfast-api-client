@@ -23,7 +23,7 @@ type CarrerProfile<T extends string | number | symbol> = {
  * @template T - The type of hero.
  */
 export class Player<T extends string | number | symbol> {
-    player_id;
+    private player_id;
     private api_url;
 
     /**
