@@ -12,7 +12,7 @@ export const BlizzardServerError = BlizzardServerErr;
 export type NEW_HEROES_KEYS<T extends string | number | symbol> = T extends HEROES_KEYS ? HEROES_KEYS : T | HEROES_KEYS;
 
 
-export default class OverfastClient<HEROES extends string | number | symbol = HEROES_KEYS> {
+export class OverfastClient<HEROES extends string | number | symbol = HEROES_KEYS> {
 
   heroes;
   maps;
@@ -27,4 +27,3 @@ export default class OverfastClient<HEROES extends string | number | symbol = HE
     this.players = new Players<NEW_HEROES_KEYS<HEROES>>(url);
   }
 }
-
