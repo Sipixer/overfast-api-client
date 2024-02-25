@@ -56,7 +56,7 @@ overfast.heroes.getHeroes().then((heroes) => {
 
   Result is an array of objects with the following structure:
 
-```json
+```ts
   {
     key: 'ana',
     name: 'Ana',
@@ -86,7 +86,7 @@ overfast.heroes.getHero('ana').then((hero) => {
 
   Result is an object with the following structure:
 
-```json
+```ts
 {
   name: 'Ana',
   description: 'One of the founding members of Overwatch, Ana uses her skills and expertise to defend her home and the people she cares for.',
@@ -149,7 +149,7 @@ overfast.heroes.getRoles().then((roles) => {
 
   Result is an array of objects with the following structure:
 
-```json
+```ts
 {
     key: 'tank',
     name: 'Tank',
@@ -182,7 +182,7 @@ overfast.maps.getMaps().then((maps) => {
 
   Result is an array of objects with the following structure:
 
-```json
+```ts
 {
     name: 'King’s Row',
     screenshot: 'https://overfast-api.tekrop.fr/static/maps/kings_row.jpg',
@@ -212,7 +212,7 @@ overfast.maps.getGamemodes().then((gamemodes) => {
 
   Result is an array of objects with the following structure:
 
-```json
+```ts
 {
     key: 'control',
     name: 'Control',
@@ -252,7 +252,7 @@ overfast.players.player("Sipixer#2880").career().then((career) => {
 
   Result is an object with the following structure:
 
-```json
+```ts
 {
   'all-heroes': {
     assists: {
@@ -340,7 +340,7 @@ overfast.players.player("Sipixer#2880").summary().then((summary) => {
 
   Result is an object with the following structure:
 
-```json
+```ts
 {
   username: 'Sipixer',
   avatar: 'https://d15f34w2p8l1cc.cloudfront.net/overwatch/dc5301f28de3bc59660b42f1fde4ef0598013ae9c1a2ba0f079abb94413d45e5.png',
@@ -383,7 +383,7 @@ overfast.players.searchPlayers("Sipixer").then((players) => {
 
   Result is an objects with the following structure:
 
-```json
+```ts
 {
   total: 1,
   results: [
