@@ -28,7 +28,3 @@ export default class OverfastClient<HEROES extends string | number | symbol = HE
   }
 }
 
-
-const overfast = new OverfastClient();
-
-overfast.players.searchPlayers("Sipixer").then(console.log);
